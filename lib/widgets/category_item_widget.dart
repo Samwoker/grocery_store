@@ -16,6 +16,12 @@ class CategoryItemWidget extends StatelessWidget {
           _CategoryItem(icon: Icons.local_cafe, label: "Beverages"),
           _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
           _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
+
+          _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
+          _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
+
+          _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
+          _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
         ],
       ),
     );
