@@ -9,6 +9,8 @@ class CategoryItemWidget extends StatelessWidget {
       height: 70,
       child: ListView(
         scrollDirection: Axis.horizontal,
+        physics: const BouncingScrollPhysics(),
+        shrinkWrap: true,
         padding: EdgeInsets.symmetric(horizontal: 12),
         children: [
           _CategoryItem(icon: Icons.local_grocery_store, label: "Fruits"),
