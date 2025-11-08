@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
-class FruitsSectionWidget extends StatelessWidget {
-  const FruitsSectionWidget({super.key});
+class Categories extends StatelessWidget {
+  final String category;
+  const Categories({super.key, required this.category});
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,7 @@ class FruitsSectionWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
-            "Fruits",
+            category,
             style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
           ),
           TextButton(

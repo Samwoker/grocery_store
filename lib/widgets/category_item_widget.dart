@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:grocery_store/models/category_model.dart';
 
 class CategoryItemWidget extends StatelessWidget {
   const CategoryItemWidget({super.key});
@@ -6,51 +7,31 @@ class CategoryItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 70,
-      child: ListView(
+      height: 100,
+      child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        physics: const BouncingScrollPhysics(),
-        shrinkWrap: true,
-        padding: EdgeInsets.symmetric(horizontal: 12),
-        children: [
-          _CategoryItem(icon: Icons.local_grocery_store, label: "Fruits"),
-          _CategoryItem(icon: Icons.local_drink, label: "Milk & Egg"),
-          _CategoryItem(icon: Icons.local_cafe, label: "Beverages"),
-          _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
-          _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
-
-          _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
-          _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
-
-          _CategoryItem(icon: Icons.local_laundry_service, label: "Laundry"),
-          _CategoryItem(icon: Icons.local_florist, label: "Vegetables"),
-        ],
-      ),
-    );
-  }
-}
-
-class _CategoryItem extends StatelessWidget {
-  final IconData icon;
-  final String label;
-
-  const _CategoryItem({required this.icon, required this.label});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 7),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircleAvatar(
-            backgroundColor: Colors.white,
-            radius: 23,
-            child: Icon(icon, color: Colors.green),
-          ),
-          SizedBox(height: 6),
-          Text(label, style: TextStyle(fontSize: 12)),
-        ],
+        itemCount: category.length,
+        itemBuilder: (context, index) {
+          final item = category[index];
+          return InkWell(
+            onTap: () {},
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 16),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.grey[200],
+                    backgroundImage: AssetImage(item.image),
+                  ),
+                  const SizedBox(height: 12),
+                  Text(item.name),
+                ],
+              ),
+            ),
+          );
+        },
       ),
     );
   }
